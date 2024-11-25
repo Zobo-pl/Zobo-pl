@@ -1,54 +1,63 @@
 <!DOCTYPE html>
-<html lang="pl">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Odliczanie do 8 Lipca</title>
+    <title>Students Information</title>
     <style>
-        body {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            font-family: Arial, sans-serif;
-            background-color: #f0f0f0;
-            margin: 0;
-        }
-        .countdown-container {
+        table {
+            border-collapse: collapse;
+            width: 50%;
+            margin: auto;
             text-align: center;
         }
-        .countdown {
-            font-size: 3rem;
-            margin-top: 20px;
+        table, th, td {
+            border: 1px solid black;
+        }
+        th, td {
+            padding: 10px;
         }
     </style>
 </head>
 <body>
-    <div class="countdown-container">
-        <h1>Odliczanie do 8 Lipca</h1>
-        <div class="countdown" id="countdown"></div>
-    </div>
-
-    <script>
-        function updateCountdown() {
-            const targetDate = new Date("July 8, " + (new Date().getFullYear() + 1) + " 00:00:00").getTime();
-            const now = new Date().getTime();
-            const timeRemaining = targetDate - now;
-
-            const days = Math.floor(timeRemaining / (1000 * 60 * 60 * 24));
-            const hours = Math.floor((timeRemaining % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            const minutes = Math.floor((timeRemaining % (1000 * 60 * 60)) / (1000 * 60));
-            const seconds = Math.floor((timeRemaining % (1000 * 60)) / 1000);
-
-            document.getElementById("countdown").innerHTML = 
-                `${days} dni ${hours} godzin ${minutes} minut ${seconds} sekund`;
-
-            if (timeRemaining < 0) {
-                document.getElementById("countdown").innerHTML = "Odliczanie zakończone!";
-            }
-        }
-
-        setInterval(updateCountdown, 1000);
-    </script>
+    <table>
+        <thead>
+            <tr>
+                <th colspan="4">Students Information</th>
+            </tr>
+            <tr>
+                <th>Name</th>
+                <th>City</th>
+                <th colspan="2">Address</th>
+            </tr>
+            <tr>
+                <th></th>
+                <th></th>
+                <th>House No</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>A</td>
+                <td>HND</td>
+                <td>1</td>
+            </tr>
+            <tr>
+                <td>B</td>
+                <td>LHR</td>
+                <td>2</td>
+            </tr>
+            <tr>
+                <td>C</td>
+                <td>SWL</td>
+                <td>3</td>
+            </tr>
+            <tr>
+                <td>D</td>
+                <td>BWP</td>
+                <td>4</td>
+            </tr>
+        </tbody>
+    </table>
 </body>
 </html>
