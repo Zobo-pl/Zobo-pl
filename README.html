@@ -1,38 +1,135 @@
 <!DOCTYPE html>
+
 <html lang="pl">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Oceny słownie</title>
-    <script>
-        function ocenaSlownie(ocena) {
-            let oceny = {
-                1: "niedostateczny",
-                2: "dopuszczający",
-                3: "dostateczny",
-                4: "dobry",
-                5: "bardzo dobry",
-                6: "celujący"
-            };
-            return oceny[ocena] || "Niepoprawna ocena";
-        }
 
-        function wyswietlOcene() {
-            let ocena = parseInt(document.getElementById("ocena").value);
-            document.getElementById("wynik").innerText = "Ocena słownie: " + ocenaSlownie(ocena);
-        }
+<meta charset="UTF-8">
 
-        document.addEventListener("DOMContentLoaded", function() {
-            document.getElementById("autor").innerText = "Autor: Jan Kowalski";
-        });
-    </script>
+<meta name="viewport" content="width=device-width, initial
+
+<title>Ocena słowna</title>
+
+<style>
+
+body {
+
+font-family: Arial, sans-serif;
+
+margin: 20px;
+
+}
+
+label, button {
+
+margin: 10px 0;
+
+}
+
+</style>
+
 </head>
+
 <body>
-    <h2>Oceny szkolne</h2>
-    <p id="autor"></p>
-    <label for="ocena">Podaj ocenę (1-6):</label>
-    <input type="number" id="ocena" min="1" max="6">
-    <button onclick="wyswietlOcene()">Sprawdź</button>
-    <p id="wynik"></p>
+
+<h1>Ocena słowna</h1>
+
+<p id="imieNazwisko">Imię i nazwisko: Bartłomiej Gajek</p>
+
+<label for="ocena">Wprowadź ocenę (1-6): </label>
+
+<input type="number" id="ocena" min-"1" max="6">
+
+<button id="przycisk">Pokaż ocenę słownie</button>
+
+<p id="wynik"></p>
+
+<script>
+
+function ocenaSlownie (ocena) {
+
+switch (ocena)
+
+case 1:
+
+return "niedostateczny";
+
+case 2:
+
+return "dostateczny";
+
+case 3:
+
+return "dopuszczający";
+
+case 4:
+
+return "dobry";
+
+case 5:
+
+return "bardzo dobry";
+
+case 6:
+
+return "celujący"
+
+default:
+
+return "Niepoprawna ocena";}
+
+49
+
+function wyswietlocene() {
+
+const ocena = document.getElementById("ocena").value;
+
+50
+
+const wynik = document.querySelector("#wynik");
+
+51
+
+if (ocena >= 1 && ocena <= 6) {
+
+52
+
+wynik.textContent = `Twoja ocena to: ${ocenaSlownie(parseInt(ocena))}.`;
+
+53
+
+} else {
+
+54
+
+wynik.textContent = "Wprowadź poprawną ocenę (1-6).";
+
+}
+
+}
+
+55
+
+56
+
+57
+
+document.querySelector("#przycisk").addEventListener("click", wyswietlocene);
+
+58
+
+59
+
+</script>
+
+60
+
+61
+
 </body>
+
+62
+
 </html>
+
+63
