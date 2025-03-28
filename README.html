@@ -1,135 +1,74 @@
 <!DOCTYPE html>
-
 <html lang="pl">
-
 <head>
-
-<meta charset="UTF-8">
-
-<meta name="viewport" content="width=device-width, initial
-
-<title>Ocena słowna</title>
-
-<style>
-
-body {
-
-font-family: Arial, sans-serif;
-
-margin: 20px;
-
-}
-
-label, button {
-
-margin: 10px 0;
-
-}
-
-</style>
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rejestracja</title>
 </head>
-
 <body>
+    <h2>Rejestracja</h2>
+    <p>W celu uzyskania uprawnień do dokonywania zakupów prosimy o wypełnienie poniższego formularza.</p>
+    <p>Pola zaznaczone gwiazdką (*) są obowiązkowe.</p>
 
-<h1>Ocena słowna</h1>
+    <form action="#" method="post">
+        <fieldset>
+            <legend>Dane identyfikacyjne</legend>
+            Firma*: <input type="text" name="firma" required><br>
+            Ulica: <input type="text" name="ulica"><br>
+            Miejscowość: <input type="text" name="miejscowosc"><br>
+            Kod pocztowy: <input type="text" name="kod_pocztowy"><br>
+            NIP: <input type="text" name="nip"><br>
+            WWW: <input type="url" name="www"><br>
+        </fieldset>
 
-<p id="imieNazwisko">Imię i nazwisko: Bartłomiej Gajek</p>
+        <fieldset>
+            <legend>Osoba kontaktowa</legend>
+            Nazwisko*: <input type="text" name="nazwisko" required><br>
+            Imię*: <input type="text" name="imie" required><br>
+            Telefon*: <input type="tel" name="telefon" required><br>
+            Kraj*: 
+            <select name="kraj" required>
+                <option value="">Wybierz</option>
+                <option value="pl">Polska</option>
+                <option value="de">Niemcy</option>
+                <option value="uk">Wielka Brytania</option>
+            </select><br>
+            Telefon kom.: <input type="tel" name="telefon_kom"><br>
+            Faks: <input type="text" name="faks"><br>
+            E-mail*: <input type="email" name="email" required><br>
+        </fieldset>
 
-<label for="ocena">Wprowadź ocenę (1-6): </label>
+        <fieldset>
+            <legend>Informacje dodatkowe</legend>
+            Zakupy: 
+            <input type="radio" name="zakupy" value="detaliczne" checked> Detaliczne 
+            <input type="radio" name="zakupy" value="hurtowe"> Hurtowe <br>
 
-<input type="number" id="ocena" min-"1" max="6">
+            Prowadzę: 
+            <input type="checkbox" name="prowadze[]" value="hurtownia"> Hurtownię 
+            <input type="checkbox" name="prowadze[]" value="salon"> Salon 
+            <input type="checkbox" name="prowadze[]" value="sklep"> Sklep 
+            <input type="checkbox" name="prowadze[]" value="gsm"> Punkt z akcesoriami GSM 
+            <input type="checkbox" name="prowadze[]" value="inny"> Inny: <input type="text" name="prowadze_inne"><br>
+        </fieldset>
 
-<button id="przycisk">Pokaż ocenę słownie</button>
+        <fieldset>
+            <legend>Moja główna branża to</legend>
+            <input type="radio" name="branza" value="gsm"> GSM
+            <input type="radio" name="branza" value="rty"> RTY
+            <input type="radio" name="branza" value="komputerowa"> Komputerowa
+            <input type="radio" name="branza" value="drukarki"> Materiały eksploatacyjne do drukarek
+            <input type="radio" name="branza" value="inna"> Inna: <input type="text" name="branza_inna"><br>
+        </fieldset>
 
-<p id="wynik"></p>
+        <fieldset>
+            <legend>Dane konfiguracyjne</legend>
+            Login*: <input type="text" name="login" required><br>
+            Hasło*: <input type="password" name="haslo" required><br>
+            Powtórz hasło*: <input type="password" name="powtorz_haslo" required><br>
+        </fieldset>
 
-<script>
-
-function ocenaSlownie (ocena) {
-
-switch (ocena)
-
-case 1:
-
-return "niedostateczny";
-
-case 2:
-
-return "dostateczny";
-
-case 3:
-
-return "dopuszczający";
-
-case 4:
-
-return "dobry";
-
-case 5:
-
-return "bardzo dobry";
-
-case 6:
-
-return "celujący"
-
-default:
-
-return "Niepoprawna ocena";}
-
-49
-
-function wyswietlocene() {
-
-const ocena = document.getElementById("ocena").value;
-
-50
-
-const wynik = document.querySelector("#wynik");
-
-51
-
-if (ocena >= 1 && ocena <= 6) {
-
-52
-
-wynik.textContent = `Twoja ocena to: ${ocenaSlownie(parseInt(ocena))}.`;
-
-53
-
-} else {
-
-54
-
-wynik.textContent = "Wprowadź poprawną ocenę (1-6).";
-
-}
-
-}
-
-55
-
-56
-
-57
-
-document.querySelector("#przycisk").addEventListener("click", wyswietlocene);
-
-58
-
-59
-
-</script>
-
-60
-
-61
-
+        <button type="submit">WYŚLIJ DANE</button>
+    </form>
 </body>
-
-62
-
 </html>
-
-63
